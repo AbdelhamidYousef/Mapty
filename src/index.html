@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="..." />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Leaflet Library -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <!-- Main CSS  -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- Main JS File -->
+    <script type="module" src="./js/script.js"></script>
+    <!-- Favicon & Title -->
+    <link rel="shortcut icon" type="image/png" href="./assets/imgs/icon.png" />
+    <title>mapty || Map your workouts</title>
+  </head>
+
+  <body>
+    <section class="sidebar">
+      <img src="./assets/imgs/logo.png" alt="Logo" class="logo" />
+
+      <ul class="workouts" id="workouts-container">
+        <!-- Workout Form -->
+        <form class="form hidden" id="workout-form">
+          <!-- Type Input -->
+          <div class="form__row">
+            <label class="form__label">Type</label>
+            <select class="form__input" id="type-input">
+              <option value="running">Running</option>
+              <option value="cycling">Cycling</option>
+            </select>
+          </div>
+          <!-- Distance Input -->
+          <div class="form__row">
+            <label class="form__label">Distance</label>
+            <input class="form__input" placeholder="km" id="distance-input" />
+          </div>
+          <!-- Duration Input -->
+          <div class="form__row">
+            <label class="form__label">Duration</label>
+            <input class="form__input" placeholder="min" id="duration-input" />
+          </div>
+          <!-- Cadence Input for Running Type -->
+          <div class="form__row">
+            <label class="form__label">Cadence</label>
+            <input
+              class="form__input"
+              placeholder="step/min"
+              id="cadence-input"
+            />
+          </div>
+          <!-- Elevation Input for Cycling Type -->
+          <div class="form__row form__row--hidden">
+            <label class="form__label">Elev Gain</label>
+            <input
+              class="form__input"
+              placeholder="meters"
+              id="elevation-input"
+            />
+          </div>
+          <button class="form__btn">OK</button>
+        </form>
+
+        <!-- Workout HTML for Both Running & Cycling Types -->
+        <!-- <li class="workout workout--running" data-id="1234567890">
+          <h2 class="workout__title">Running on April 14</h2>
+          <div class="workout__details">
+            <span class="workout__icon">🏃‍♂️</span>
+            <span class="workout__value">5.2</span>
+            <span class="workout__unit">km</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⏱</span>
+            <span class="workout__value">24</span>
+            <span class="workout__unit">min</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⚡️</span>
+            <span class="workout__value">4.6</span>
+            <span class="workout__unit">min/km</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">🦶🏼</span>
+            <span class="workout__value">178</span>
+            <span class="workout__unit">spm</span>
+          </div>
+        </li>
+
+        <li class="workout workout--cycling" data-id="1234567891">
+          <h2 class="workout__title">Cycling on April 5</h2>
+          <div class="workout__details">
+            <span class="workout__icon">🚴‍♀️</span>
+            <span class="workout__value">27</span>
+            <span class="workout__unit">km</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⏱</span>
+            <span class="workout__value">95</span>
+            <span class="workout__unit">min</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⚡️</span>
+            <span class="workout__value">16</span>
+            <span class="workout__unit">km/h</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⛰</span>
+            <span class="workout__value">223</span>
+            <span class="workout__unit">m</span>
+          </div>
+        </li> -->
+      </ul>
+
+      <button class="reset-btn" id="reset-btn">Remove All</button>
+    </section>
+
+    <section id="map"></section>
+  </body>
+</html>
